@@ -13,15 +13,18 @@ public class ParkingBot {
    * @param args : Tableau de données entrées lors du lancement de l'application
    */
   public static void main(String[] args) {
+    processVehicles();
+
+  }
+
+  private static void processVehicles() {
     Vehicle vehicle = new Vehicle();
     vehicle.setRegistrationNumber("LS-324-PM");
     vehicle.setCategory("CITADINE");
     ParkingService parkingService = new ParkingService();
     Ticket ticket = parkingService.processIncommingVehicle(vehicle);
     System.out.println(ticket);
-
   }
-
 
 
 }
