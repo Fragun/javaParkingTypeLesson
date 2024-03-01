@@ -25,6 +25,8 @@ public class Ticket {
     this.vehicle = vehicle;
   }
 
+
+
   public Date getEnteringTime() {
     return enteringTime;
   }
@@ -40,6 +42,10 @@ public class Ticket {
   public void setExitTime(Date exitTime) {
     this.exitTime = exitTime;
   }
-
+  @Override
+  public String toString() {
+    return "Ticket d'un montant de: "+amount+ " € pour véhicule de type "+ vehicle.getCategory() +
+            " entré à " + enteringTime + " et sorti à " + exitTime ;
+  }
 
 }
