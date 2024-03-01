@@ -2,6 +2,8 @@ package com.zerofiltre.parkingbot.service;
 
 import com.zerofiltre.parkingbot.model.Ticket;
 import com.zerofiltre.parkingbot.model.Vehicle;
+import com.zerofiltre.parkingbot.model.VehicleModelEnum;
+
 import java.util.Date;
 
 public class ParkingService {
@@ -23,7 +25,7 @@ public class ParkingService {
     ticket.setExitTime(exitTime);
 
     Vehicle vehicle = ticket.getVehicle();
-    String category = vehicle.getCategory();
+    VehicleModelEnum category = vehicle.getCategory();
 
     double pricePerMinForCitadine = 0.08;
     double pricePerMinFor2Roues = 0.02;
@@ -31,8 +33,8 @@ public class ParkingService {
 
     long durationInMinutes = (ticket.getExitTime().getTime() - ticket.getEnteringTime().getTime()) / (60 * 1000);
     double finalPrice = switch (category) {
-        case "2 ROUES" -> durationInMinutes * pricePerMinFor2Roues;
-        case "CITADINE" -> durationInMinutes * pricePerMinForCitadine;
+      case DEUXROUES -> durationInMinutes * pricePerMinFor2Roues;
+      case CITADINE -> durationInMinutes * pricePerMinForCitadine;
         default -> durationInMinutes * defaultPricePerMin;
     };
 
