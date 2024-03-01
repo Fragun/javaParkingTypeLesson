@@ -43,7 +43,7 @@ public class Ticket {
 
   @Override
   public String toString() {
-    return "Ticket d'un montant de: " + amount + " € pour un véhicle de type " + vehicle.getCategory() +
+    return "Ticket d'un montant de: " + amount + " € pour un véhicle de type " + vehicle.getCategory() + " avec l'immatriculation :"+ vehicle.getRegistrationNumber() +
         " entré à " + enteringTime + " sorti à " + exitTime;
   }
 
